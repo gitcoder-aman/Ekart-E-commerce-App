@@ -5,11 +5,12 @@ plugins {
 //    id("androidx.navigation.safeargs.kotlin")
     id ("com.google.dagger.hilt.android")
     id("kotlin-kapt")
+    id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.tech.ekart"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.tech.ekart"
@@ -37,6 +38,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        viewBinding= true
+    }
 }
 
 dependencies {
@@ -48,11 +52,11 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 
-//    apply plugin : "kotlin-kapt"
 
     //loading button
-    implementation("br.com.simplepass:loading-button-android:2.2.0")
+    implementation("com.github.leandroborgesferreira:loading-button-android:2.3.0")
 
     //Glide
     implementation("com.github.bumptech.glide:glide:4.13.0")
@@ -61,10 +65,10 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
     //viewPager2 indicator
-    implementation("io.github.vejei.viewpagerindicator:viewpagerindicator:1.0.0-alpha.1")
+//    implementation("io.github.vejei.viewpagerindicator:viewpagerindicator:1.0.0-alpha.1")
 
     //stepView
-    implementation("com.shuhart.stepview:stepview:1.5.1")
+    implementation("com.github.shuhart:stepview:1.5.1")
 
     //Android ktx
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
@@ -72,4 +76,8 @@ dependencies {
     //Dagger hilt
     implementation("com.google.dagger:hilt-android:2.49")
     kapt("com.google.dagger:hilt-compiler:2.49")
+
+    //Firebase
+    implementation("com.google.firebase:firebase-auth:22.3.0")
+
 }
