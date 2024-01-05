@@ -14,14 +14,18 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.tech.ekart.R
 import com.tech.ekart.data.User
 import com.tech.ekart.databinding.FragmentRegisterBinding
+import com.tech.ekart.util.RegisterValidation
 import com.tech.ekart.util.Resource
 import com.tech.ekart.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
@@ -52,7 +56,7 @@ class RegisterFragment : Fragment() {
                 viewModel.createAccountWithEmailAndPassword(user,password)
             }
             tvOrLogin.setOnClickListener{
-
+                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
             }
 
         }
@@ -96,6 +100,28 @@ class RegisterFragment : Fragment() {
                         }
 
                         else -> Unit
+                    }
+                }
+            }
+        }
+        lifecycleScope.launch {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED){
+                viewModel.validation.collect{validation->
+                    if(validation.email is RegisterValidation.Failed){
+                        withContext(Dispatchers.Main){
+                            binding.edEmailRegister.apply {
+                                requestFocus()
+                                error = validation.email.message
+                            }
+                        }
+                    }
+                    if(validation.password is RegisterValidation.Failed){
+                        withContext(Dispatchers.Main){
+                            binding.edPasswordRegister.apply {
+                                requestFocus()
+                                error = validation.password.message
+                            }
+                        }
                     }
                 }
             }
