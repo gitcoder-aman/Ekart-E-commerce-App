@@ -13,9 +13,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.tech.ekart.R
 import com.tech.ekart.activities.ShoppingActivity
 import com.tech.ekart.databinding.FragmentLoginBinding
+import com.tech.ekart.dialog.setupBottomSheetDialog
 import com.tech.ekart.util.Resource
 import com.tech.ekart.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,6 +51,30 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             }
             tvDontHaveAccount.setOnClickListener{
                 findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            }
+            tvForgotPasswordLogin.setOnClickListener {
+                setupBottomSheetDialog {email->
+                    viewModel.resetPassword(email)
+                }
+            }
+            lifecycleScope.launch {
+                lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED){
+                    viewModel.resetPassword.collect{
+                        when(it) {
+                            is Resource.Loading -> {
+                            }
+
+                            is Resource.Success -> {
+                                Snackbar.make(requireView(),"Reset link was sent to your email",Snackbar.LENGTH_LONG).show()
+                            }
+
+                            is Resource.Error -> {
+                                Snackbar.make(requireView(),"Error: ${it.message}",Snackbar.LENGTH_LONG).show()
+                            }
+                            else -> Unit
+                        }
+                    }
+                }
             }
         }
         lifecycleScope.launch {

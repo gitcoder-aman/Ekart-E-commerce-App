@@ -19,4 +19,8 @@
     <string name="last_name">Last Name</string>
     <string name="todo">TODO</string>
     <string name="or_login">Or Login</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="we_will_send_you_the_password_reset_link_to_your_email">We will send you the password reset link to your email</string>
+    <string name="cancel">Cancel</string>
+    <string name="send">Send</string>
 </resources>
