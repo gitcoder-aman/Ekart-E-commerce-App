@@ -23,4 +23,12 @@
     <string name="we_will_send_you_the_password_reset_link_to_your_email">We will send you the password reset link to your email</string>
     <string name="cancel">Cancel</string>
     <string name="send">Send</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="cart">Cart</string>
+    <string name="profile">Profile</string>
+    <string name="search_now">Search Now</string>
+    <string name="see_product">See product</string>
+    <string name="best_deal">Best deal</string>
+    <string name="best_products">Best Products</string>
 </resources>

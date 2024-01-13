@@ -3,7 +3,9 @@
     <style name="Base.Theme.Ekart" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
     </style>
 
-    <style name="Theme.Ekart" parent="Base.Theme.Ekart" />
+    <style name="Theme.Ekart" parent="Base.Theme.Ekart"/>
+
 </resources>
