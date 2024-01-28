@@ -40,6 +40,7 @@ class HomeFragment : Fragment(R.layout.fragment_home){
             AccessoryFragment(),
             FurnitureFragment()
         )
+        binding.viewPagerHome.isUserInputEnabled = false // swiping off
         val viewPager2Adapter = HomeViewpagerAdapter(categoriesFragments,childFragmentManager,lifecycle)
         binding.viewPagerHome.adapter = viewPager2Adapter
 
