@@ -1,5 +1,6 @@
 package com.tech.ekart.adapters
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -19,6 +20,7 @@ class BestDealsAdapter : RecyclerView.Adapter<BestDealsAdapter.BestDealsViewHold
                     val remainingPricePercentage = 1f - it
                     val priceAfterOffer = remainingPricePercentage * product.price
                     tvNewPrice.text = "$ ${String.format("%.2f",priceAfterOffer)}"
+                    tvOldPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
                 }
                 tvOldPrice.text = "$ ${product.price}"
                 tvDealProductName.text = product.name
