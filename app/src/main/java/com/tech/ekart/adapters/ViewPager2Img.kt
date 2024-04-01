@@ -10,7 +10,7 @@ import com.tech.ekart.databinding.ViewpagerImageItemBinding
 
 class ViewPager2Img : RecyclerView.Adapter<ViewPager2Img.ViewPager2ImgViewHolder>() {
 
-    inner class ViewPager2ImgViewHolder(val binding : com.tech.ekart.databinding.ViewpagerImageItemBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class ViewPager2ImgViewHolder(val binding : ViewpagerImageItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(imagePath : String){
             Glide.with(itemView).load(imagePath).into(binding.imageProductDetails)
         }
