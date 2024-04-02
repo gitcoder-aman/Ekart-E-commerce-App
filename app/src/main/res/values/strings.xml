@@ -32,4 +32,6 @@
     <string name="best_deal">Best deal</string>
     <string name="best_products">Best Products</string>
     <string name="add_to_cart">Add to Cart</string>
+    <string name="check_out">Check Out</string>
+    <string name="your_shopping_cart_is_empty">Your Shopping Cart is Empty</string>
 </resources>
