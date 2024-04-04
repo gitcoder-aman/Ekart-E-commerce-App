@@ -32,19 +32,24 @@ class ShoppingActivity : AppCompatActivity() {
         binding.bottomNavigation.setupWithNavController(navController)
 
         lifecycleScope.launch {
-            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED){
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.cartProducts.collectLatest {
-                    when(it){
-                        is Resource.Success ->{
+                    when (it) {
+                        is Resource.Success -> {
                             val count = it.data?.size ?: 0
-                            val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigation)
-                            bottomNavigation.getOrCreateBadge(R.id.cartFragment).apply {
-                                number = count
-                                backgroundColor = resources.getColor(R.color.g_blue)
+                            if (count != 0) {
+                                val bottomNavigation =
+                                    findViewById<BottomNavigationView>(R.id.bottomNavigation)
+                                bottomNavigation.getOrCreateBadge(R.id.cartFragment).apply {
+                                    number = count
+                                    backgroundColor = resources.getColor(R.color.g_blue)
+                                }
                             }
                         }
 
-                        else -> {Unit}
+                        else -> {
+                            Unit
+                        }
                     }
                 }
             }

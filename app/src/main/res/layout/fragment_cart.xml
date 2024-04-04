@@ -72,6 +72,7 @@
             app:layout_constraintGuide_percent="0.68" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCart"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="5dp"
@@ -92,6 +93,7 @@
             app:layout_constraintTop_toBottomOf="@id/toolbarCart" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/totalPriceContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
