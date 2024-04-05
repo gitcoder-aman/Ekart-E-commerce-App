@@ -58,7 +58,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
             }
         }
         binding.imageCloseCart.setOnClickListener {
-            findNavController().navigate(R.id.action_cartFragment_to_homeFragment)
+            findNavController().navigateUp()
         }
 
         cartAdapter.OnProductClick = {
