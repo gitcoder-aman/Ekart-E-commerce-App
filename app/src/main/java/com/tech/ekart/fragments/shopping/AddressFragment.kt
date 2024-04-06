@@ -79,6 +79,9 @@ class AddressFragment : Fragment() {
                     val address = Address(addressTitle,fullName,street,phone,city,state)
                     viewModel.addAddress(address)
                 }
+                binding.imageAddressClose.setOnClickListener {
+                    findNavController().navigateUp()
+                }
             }
     }
 }
