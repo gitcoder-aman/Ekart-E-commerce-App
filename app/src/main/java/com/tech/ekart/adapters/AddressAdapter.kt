@@ -1,6 +1,5 @@
 package com.tech.ekart.adapters
 
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -52,18 +51,19 @@ class AddressAdapter : RecyclerView.Adapter<AddressAdapter.AddressViewHolder>(){
         return differ.currentList.size
     }
 
-    var selectedAddress = 0
+     var selectedAddress = -1
     override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
         val address = differ.currentList[position]
         holder.bind(address,selectedAddress == position)
 
         holder.binding.buttonAddress.setOnClickListener {
-            if(selectedAddress >= 0){
+
+            if(selectedAddress >= 0)
                 notifyItemChanged(selectedAddress)
+
                 selectedAddress = holder.adapterPosition
                 notifyItemChanged(selectedAddress)
                 onClick?.invoke(address)
-            }
         }
     }
     init {
