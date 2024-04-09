@@ -22,7 +22,6 @@ class AllOrdersAdapter : RecyclerView.Adapter<AllOrdersAdapter.OrdersViewHolder>
             binding.apply {
                 tvOrderId.text = order.orderId.toString()
                 tvOrderDate.text = order.date
-                val resources = itemView.resources
 
                 val colorDrawable = when(getOrderStatus(order.orderStatus)){
                     is OrderStatus.Ordered->{
@@ -70,6 +69,10 @@ class AllOrdersAdapter : RecyclerView.Adapter<AllOrdersAdapter.OrdersViewHolder>
     override fun onBindViewHolder(holder: AllOrdersAdapter.OrdersViewHolder, position: Int) {
         val order = differ.currentList[position]
         holder.bind(order)
+
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(order)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -83,5 +83,18 @@
         android:id="@+id/ordersFragment"
         android:name="com.tech.ekart.fragments.settings.AllOrdersFragment"
         android:label="OrdersFragment"
-        tools:layout="@layout/fragment_orders"/>
+        tools:layout="@layout/fragment_orders">
+        <action
+            android:id="@+id/action_ordersFragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailFragment"
+        android:name="com.tech.ekart.fragments.settings.OrderDetailFragment"
+        android:label="OrderDetailFragment"
+        tools:layout="@layout/fragment_order_detail">
+        <argument
+            android:name="order"
+            app:argType="com.tech.ekart.data.order.Order" />
+    </fragment>
 </navigation>
