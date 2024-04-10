@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.tech.ekart.data.Address
 import com.tech.ekart.databinding.FragmentAddressBinding
 import com.tech.ekart.util.Resource
@@ -23,6 +24,7 @@ import kotlinx.coroutines.launch
 class AddressFragment : Fragment() {
     private lateinit var binding : FragmentAddressBinding
     val viewModel by viewModels<AddressViewModel>()
+    val args by navArgs<AddressFragmentArgs>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +69,19 @@ class AddressFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val address = args.address
+        if(address == null){
+            binding.buttonDelelte.visibility = View.GONE
+        }else{
+            binding.apply {
+                edAddressTitle.setText(address.addressTitle)
+                edFullName.setText(address.fullName)
+                edStreet.setText(address.street)
+                edState.setText(address.state)
+                edCity.setText(address.city)
+                edPhone.setText(address.phone)
+            }
+        }
             binding.apply {
                 binding.buttonSave.setOnClickListener {
                     val addressTitle = edAddressTitle.text.toString()
