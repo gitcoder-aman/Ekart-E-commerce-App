@@ -1,6 +1,5 @@
-Home Section
 
-![WhatsApp Image 2024-04-14 at 06 55 51](https://github.com/gitcoder-aman/Ekart-E-commerce-App/assets/96575890/9942592a-7594-4a87-a924-876b30b64f4f)    Search Section  ![WhatsApp Image 2024-04-14 at 06 55 58](https://github.com/gitcoder-aman/Ekart-E-commerce-App/assets/96575890/53987ef5-f7cf-4bba-b71b-87ec03672106)
+![WhatsApp Image 2024-04-14 at 06 55 51](https://github.com/gitcoder-aman/Ekart-E-commerce-App/assets/96575890/9942592a-7594-4a87-a924-876b30b64f4f)  ![WhatsApp Image 2024-04-14 at 06 55 58](https://github.com/gitcoder-aman/Ekart-E-commerce-App/assets/96575890/53987ef5-f7cf-4bba-b71b-87ec03672106)
 
 Product Detail Section
 
